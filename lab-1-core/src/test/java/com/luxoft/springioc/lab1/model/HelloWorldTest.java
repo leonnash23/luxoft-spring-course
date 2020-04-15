@@ -29,25 +29,23 @@ public class HelloWorldTest {
 		UsualPerson person = (UsualPerson) context.getBean("person", Person.class);
 
 		System.out.println("-->" + person.getCountry().getA());
-//		assertEquals(expectedPerson, person);
-//		System.out.println(person);
+		assertEquals(expectedPerson, person);
+		System.out.println(person);
 	}
 
 	private UsualPerson getExpectedPerson() {
-		UsualPerson person = new UsualPerson();
-		person.setAge(35);
-		person.setName("John Smith");
 
+		return new UsualPerson("John Smith", createCountry(), 35);
+	}
+
+	private Country createCountry() {
 		Country country = new Country();
 		country.setId(1);
 		country.setName("Russia");
 		country.setCodeName("RU");
 
 		System.out.println("-->" + country.getA());
-
-		person.setCountry(country);
-
-		return person;
+		return country;
 	}
 
 	@After

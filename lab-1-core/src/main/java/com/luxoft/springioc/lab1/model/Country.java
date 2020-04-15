@@ -1,9 +1,9 @@
 package com.luxoft.springioc.lab1.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
-public class Country implements Serializable
-{
+public class Country implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -15,70 +15,57 @@ public class Country implements Serializable
 
     private A a;
 
-    public void setA(A a)
-    {
+    public void setA(A a) {
         this.a = a;
     }
 
-    public A getA()
-    {
+    public A getA() {
         return a;
     }
 
-    public Country()
-    {
+    public Country() {
     }
 
-    public Country(int id, String name, String codeName)
-    {
+    public Country(int id, String name, String codeName) {
         this.id = id;
         this.name = name;
         this.codeName = codeName;
     }
 
-    public Country(String name, String codeName)
-    {
+    public Country(String name, String codeName) {
         this.name = name;
         this.codeName = codeName;
     }
 
-    public int getId()
-    {
+    public int getId() {
         return id;
     }
 
-    public void setId(int id)
-    {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getCodeName()
-    {
+    public String getCodeName() {
         return codeName;
     }
 
-    public void setCodeName(String codeName)
-    {
+    public void setCodeName(String codeName) {
         this.codeName = codeName;
     }
 
-    public String toString()
-    {
+    public String toString() {
         return id + ". " + name + " (" + codeName + ")";
     }
 
-    public boolean equals(Object o)
-    {
+    public boolean equals(Object o) {
         if (this == o)
         {
             return true;
@@ -90,20 +77,17 @@ public class Country implements Serializable
 
         Country country = (Country) o;
 
-        if (codeName != null ? !codeName.equals(country.codeName) : country.codeName != null)
-        {
+        if (!Objects.equals(codeName, country.codeName)) {
             return false;
         }
-        if (name != null ? !name.equals(country.name) : country.name != null)
-        {
+        if (!Objects.equals(name, country.name)) {
             return false;
         }
 
         return true;
     }
 
-    public int hashCode()
-    {
+    public int hashCode() {
         int result = 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (codeName != null ? codeName.hashCode() : 0);
