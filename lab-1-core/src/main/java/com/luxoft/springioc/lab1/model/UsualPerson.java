@@ -1,19 +1,23 @@
 package com.luxoft.springioc.lab1.model;
 
 import java.util.List;
+import java.util.Objects;
 
 public class UsualPerson implements Person {
     private int id;
-
     private String name;
-
     private Country country;
-
     private int age;
     private float height;
     private boolean isProgrammer;
 
     private List<String> contacts;
+
+    public UsualPerson(String name, Country country, int age) {
+        this.name = name;
+        this.country = country;
+        this.age = age;
+    }
 
     public void setIsProgrammer(boolean isProgrammer) {
         this.isProgrammer = isProgrammer;
@@ -95,8 +99,8 @@ public class UsualPerson implements Person {
         if (age != person.age) return false;
         if (Float.compare(person.height, height) != 0) return false;
         if (isProgrammer != person.isProgrammer) return false;
-        if (country != null ? !country.equals(person.country) : person.country != null) return false;
-        if (name != null ? !name.equals(person.name) : person.name != null) return false;
+        if (!Objects.equals(country, person.country)) return false;
+        if (!Objects.equals(name, person.name)) return false;
 
         return true;
     }
