@@ -1,15 +1,13 @@
 package com.luxoft.springioc.lab2.model;
-import static org.junit.Assert.*;
-
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Test;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.luxoft.springioc.lab2.model.Country;
-import com.luxoft.springioc.lab2.model.UsualPerson;
-
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class SimpleAppTest {
 	
@@ -28,9 +26,7 @@ public class SimpleAppTest {
 
 	@Test
 	public void testInitPerson() {
-		UsualPerson person = (UsualPerson) context.getBean("person");
-//		FYI: Another way to achieve the bean
-//		person = context.getBean(UsualPerson.class);
+		UsualPerson person = context.getBean(UsualPerson.class);
 		assertEquals(expectedPerson, person);
 		System.out.println(person);
 	}
