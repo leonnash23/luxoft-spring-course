@@ -1,8 +1,7 @@
 package com.luxoft.springdb.lab1.dao;
 
-import org.springframework.jdbc.core.RowMapper;
-
 import com.luxoft.springdb.lab1.model.Country;
+import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,9 +15,7 @@ public class CountryRowMapper implements RowMapper<Country> {
 		Country country = new Country();
 		country.setId(resultSet.getInt(ID));
 		country.setName(resultSet.getString(NAME));
-
-		// TODO: implement it
-		
+		country.setCodeName(resultSet.getString(CODE_NAME));
 		return country;
 	}
 }
