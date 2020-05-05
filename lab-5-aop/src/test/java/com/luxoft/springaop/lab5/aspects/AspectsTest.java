@@ -43,4 +43,12 @@ public class AspectsTest {
 		}
 	}
 
+
+	@Test
+	public void testAnnotationLogger() {
+		Person person = context.getBean(Person.class);
+		person.getCountry();
+		person.getName();
+	}
+
 }

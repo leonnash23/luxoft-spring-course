@@ -1,5 +1,7 @@
 package com.luxoft.springaop.lab5.model;
 
+import com.luxoft.springaop.lab5.aspects.LogResult;
+
 import java.util.List;
 
 public class UsualPerson implements Person {
@@ -50,6 +52,7 @@ public class UsualPerson implements Person {
     /* (non-Javadoc)
 	 * @see lab.model.Person1#getName()
 	 */
+    @LogResult
     @Override
 	public String getName() {
         return name;
@@ -65,6 +68,7 @@ public class UsualPerson implements Person {
     /* (non-Javadoc)
 	 * @see lab.model.Person1#getCountry()
 	 */
+    @LogResult
     @Override
 	public Country getCountry() {
         return country;
