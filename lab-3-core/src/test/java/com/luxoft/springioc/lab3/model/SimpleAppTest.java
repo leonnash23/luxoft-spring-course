@@ -1,8 +1,4 @@
 package com.luxoft.springioc.lab3.model;
-import static org.junit.Assert.assertEquals;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
@@ -11,6 +7,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.AbstractApplicationContext;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+
+@ImportResource("classpath:application-context.xml")
 public class SimpleAppTest {
 	
 	private AbstractApplicationContext context;
@@ -25,9 +27,7 @@ public class SimpleAppTest {
 
 	@Test
 	public void testInitPerson() {
-		UsualPerson person = (UsualPerson) context.getBean("person");
-//		FYI: Another way to achieve the bean
-//		person = context.getBean(UsualPerson.class);
+		UsualPerson person = context.getBean(UsualPerson.class);
 		assertEquals(expectedPerson, person);
 		System.out.println(person);
 	}
